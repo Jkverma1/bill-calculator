@@ -1,0 +1,33 @@
+
+    <%- include("header") -%>
+
+    <div class="box" id="heading">
+        <h1> <%= listTitle %> </h1>
+
+    </div>
+    <div class="box">
+        <% for(var i=0;i<newListItems.length;i++) { %>
+        <div class="item">
+          <p><%= newListItems[i] %> <%= newListWeight[i] %>KG From:<%= newListCurrent[i] %> To:<%= newListDestination[i] %></p>
+        </div>
+        <%  } %>
+
+        <form class="item-form" action="/" method="post">
+          <div class="item">
+          <input class="item-input1" type="text" name="newItem" placeholder="New Item" autocomplete="off">
+          <input class="item-input2" type="number" name="weight" placeholder="Weight (In KG)">
+          <input class="item-input3" type="text" name="currentLocation" placeholder="Current Location">
+          <input class="item-input4" type="text" name="Destination" placeholder="Destination">
+          <button type="submit" name="submitValue" value="add-item">+</button>
+          </div>
+          <button class="final-submit" type="submit" name="submitValue" value="final-submit">Submit</button>
+        </form>
+
+        <div class="bill-details">
+          <% for(i=0;i<indexPrice;i++) { %>
+          <p>price of <%= i+1 %> <%= finalCalculatedPrice %></p>
+          <%  } %>
+        </div>
+    </div>
+
+    <%- include("footer") -%>
